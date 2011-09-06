@@ -27,7 +27,7 @@ Usage
 -----
 `./NDialog dialog.xml`
 
-Look into TestDialog.xml for more information.
+Look into elements.xml for more information.
 
 [1]: http://en.wikipedia.org/wiki/Dialog_(software)
 [2]: http://en.wikipedia.org/wiki/Newt_(programming_library)
