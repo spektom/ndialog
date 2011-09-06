@@ -1,0 +1,63 @@
+# Process this file with autoconf to produce a configure script.
+
+AC_INIT(NDialog, 1.0, spektom@gmail.com)
+AC_CONFIG_HEADER([config.h])
+
+# Checks for programs.
+AC_PROG_CXX
+
+AC_PROG_LIBTOOL
+
+# Checks for libraries.
+LDFLAGS="-L/usr/local/lib $LDFLAGS"
+CXXFLAGS="-I/usr/local/include $CXXFLAGS"
+
+AC_ARG_WITH(slang-dir,
+[  --with-slang-dir=[DIR]     LibSlang install prefix],
+[
+ LDFLAGS="$LDFLAGS -L$withval/lib"
+ CXXFLAGS="$CXXFLAGS -I$withval/include"
+],)
+
+AC_ARG_WITH(newt-dir,
+[  --with-newt-dir=[DIR]     LibNewt install prefix],
+[
+ LDFLAGS="$LDFLAGS -L$withval/lib"
+ CXXFLAGS="$CXXFLAGS -I$withval/include"
+],)
+
+AC_ARG_WITH(xml2-dir,
+[  --with-libxml2-dir=[DIR]     LibXML2 install prefix],
+[
+ LDFLAGS="$LDFLAGS -L$withval/lib"
+ CXXFLAGS="$CXXFLAGS -I$withval/include"
+],)
+
+AC_CHECK_LIB([curses], [initscr], [LIBS="-lcurses $LIBS"],
+	AC_CHECK_LIB([ncurses], [initscr], [LIBS="-lncurses $LIBS"],
+		AC_MSG_ERROR(Cannot find Curses library)))
+
+AC_CHECK_LIB([slang], [SLang_init_tty], [LIBS="-lslang $LIBS"])
+
+AC_CHECK_LIB([newt], [newtInit], [LIBS="-lnewt $LIBS"], AC_MSG_ERROR(Cannot find Newt library))
+
+AM_PATH_XML2(2.6.0,
+[
+ LIBS="$LIBS $XML_LIBS"
+ CXXFLAGS="$CXXFLAGS $XML_CFLAGS"
+],)
+
+case "$host" in
+	*linux*|*solaris*)
+			#LDFLAGS="-static $LDFLAGS"
+			;;
+esac
+
+# Checks for header files.
+AC_CHECK_HEADERS([])
+
+# Checks for library functions.
+AC_CHECK_FUNCS([])
+
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT

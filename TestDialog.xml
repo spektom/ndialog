@@ -1,0 +1,38 @@
+<dialog width="80" height="25" timeout="30" backtitle="This is the backtitle of Test Dialog" title="This is the title of Test Dialog">
+	
+	<!-- Components: //-->
+
+	<button id="BUTTON1" left="10" top="2">Press me</button>
+	
+	<label id="LABEL1" left="10" top="4">This is a label:</label>
+	
+	<editbox id="EDITBOX1" left="10" top="6" width="20">Default value</editbox>
+	
+	<passwordbox id="PASSWORD1" left="10" top="8" width="10">Default password</passwordbox>
+	
+	<checkbox id="CHECKBOX1" left="10" top="10" value="0">Check this checkbox</checkbox>
+	
+	<radiobox id="RADIOBOX1" value="RADIOBUTTON1">
+		<radiobutton id="RADIOBUTTON1" left="20" top="2">Check this radiobutton 1</radiobutton>
+		<radiobutton id="RADIOBUTTON2" left="20" top="4">Check this radiobutton 2</radiobutton>
+	</radiobox>
+	
+	<textbox id="TEXTBOX1" left="20" top="6" width="10" height="6" file="/etc/hosts"/>
+	
+	<textarea id="TEXTAREA1" left="20" top="6" width="10" height="6">Free text</textarea>
+	
+	<listbox id="LISTBOX1" left="20" top="18" width="5" height="3" value="ITEM2">
+		<item id="ITEM1">List item 1</item>
+		<item id="ITEM2">List item 2</item>
+	</listbox>
+
+	<menubox id="MENUBOX1" left="20" top="25" height="5" width="5" value="ITEM1">
+		<item id="ITEM1">Menu item 1</item>
+		<item id="ITEM2">Menu item 2</item>
+	</menubox>
+	
+	<scale id="SCALE1" left="40" top="10" width="10" size="100"/>
+	
+	<scrollbar left="1" top="1" height="20"/>
+
+</dialog>

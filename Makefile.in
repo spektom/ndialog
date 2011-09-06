@@ -1,0 +1,19 @@
+CPP= @CXX@
+LD= @CXX@
+CXXFLAGS+= @CXXFLAGS@
+LDFLAGS+= @LDFLAGS@
+LIBS+= @LIBS@
+
+OBJS= Component.o Dialog.o NDialog.o
+BIN= NDialog
+
+all:	$(BIN)
+
+$(BIN): $(OBJS)
+	$(LD) -o $@ $^ $(LDFLAGS) $(LIBS)
+
+%.o: %.cpp
+	$(CPP) -c $(CXXFLAGS) -o $@ $<
+
+clean:
+	rm -f $(OBJS) $(BIN)
