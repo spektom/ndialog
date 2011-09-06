@@ -33,10 +33,10 @@ public:
 	Component (std::string &id, ComponentType type, newtComponent data)
 		:id(id), group_id(""), type(type), data(data) {}
 
-  std::string & getID()       { return this->id;       }
-  std::string & getGroupID()  { return this->group_id; }
-  ComponentType getType()     { return this->type;     }
-  newtComponent getData ()    { return this->data;     }
+	std::string & getID()       { return this->id;       }
+	std::string & getGroupID()  { return this->group_id; }
+	ComponentType getType()     { return this->type;     }
+	newtComponent getData ()    { return this->data;     }
 
 	void setID (const char *id)             { this->id = id;             }
 	void setGroupID (const char *group_id)  { this->group_id = group_id; }

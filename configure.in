@@ -2,6 +2,7 @@
 
 AC_INIT(NDialog, 1.0, spektom@gmail.com)
 AC_CONFIG_HEADER([config.h])
+AC_CONFIG_MACRO_DIR([m4])
 
 # Checks for programs.
 AC_PROG_CXX
@@ -44,7 +45,7 @@ AC_CHECK_LIB([newt], [newtInit], [LIBS="-lnewt $LIBS"], AC_MSG_ERROR(Cannot find
 AM_PATH_XML2(2.6.0,
 [
  LIBS="$LIBS $XML_LIBS"
- CXXFLAGS="$CXXFLAGS $XML_CFLAGS"
+ CXXFLAGS="$CXXFLAGS $XML_CPPFLAGS"
 ],)
 
 case "$host" in

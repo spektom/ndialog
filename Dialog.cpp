@@ -1,6 +1,7 @@
 #include <libxml/parser.h>
 #include <libxml/tree.h>
 #include <fstream>
+#include <string.h>
 
 #include "NDialog.h"
 #include "Dialog.h"
@@ -362,4 +363,23 @@ void Dialog::BuildFromXML(const char *file)
 
 void Dialog::Draw()
 {
+	newtInit();
+	newtCls();
+
+	newtCenteredWindow(this->width, this->height, this->title.c_str());
+	if (this->backtitle.length() > 0) {
+		newtDrawRootText(0, 0, this->backtitle.c_str());
+	}
+
+	newtComponent form = newtForm(NULL, NULL, 0);
+
+	std::vector<Component>::iterator i;
+	for (i = components.begin(); i < components.end(); ++i) {
+		newtFormAddComponent(form, i->getData());
+	}
+
+	newtRunForm(form);
+	newtFormDestroy(form);
+	newtFinished();
 }
+
