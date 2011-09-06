@@ -1,6 +1,8 @@
 ndialog
 =======
-Display dialog boxes from shell. This is similar to the [dialog][http://en.wikipedia.org/wiki/Dialog_(software)] utility, with the exception that this one is based on [Newt][http://en.wikipedia.org/wiki/Newt_(programming_library)] library (while dialog is based on ncurses).
+Display dialog boxes from shell. 
+
+This is similar to the [dialog][1] utility, with the exception that this one is based on [Newt][2] library (while dialog is based on ncurses).
 
 Prerequisites
 --------------
@@ -15,7 +17,14 @@ Prerequisites
 
 Installation
 ------------
-`buildconf.sh && ./configure && make install`
+```
+buildconf.sh
+./configure
+make install
+```
 
 Usage
 -----
+
+[1]: http://en.wikipedia.org/wiki/Dialog_(software)
+[2]: http://en.wikipedia.org/wiki/Newt_(programming_library)
